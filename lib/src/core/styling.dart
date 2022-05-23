@@ -155,9 +155,9 @@ class AlternatingStyleStrategy
     implements StyleStrategy {
   final List<int> disabledIndices;
 
-  Color _getFillColor(int index, int itemCount) {
-    final color = Colors.red;
-    final background = Colors.red;;
+  Color _getFillColor(ThemeData theme, int index, int itemCount) {
+    final color = theme.primaryColor;
+    final background = theme.backgroundColor;
     final opacity = itemCount % 2 == 1 && index == 0
         ? 0.7 // TODO: make 0.75
         : index % 2 == 0
@@ -176,13 +176,13 @@ class AlternatingStyleStrategy
 
   /// {@macro flutter_fortune_wheel.StyleStrategy.getItemStyle}
   @override
-  FortuneItemStyle getItemStyle(int index, int itemCount) {
+  FortuneItemStyle getItemStyle(ThemeData theme, int index, int itemCount) {
     return getDisabledItemStyle(
       theme,
       index,
       itemCount,
       () => FortuneItemStyle(
-        color: _getFillColor(index, itemCount),
+        color: _getFillColor(theme, index, itemCount),
         borderColor: theme.primaryColor,
         borderWidth: 0.0,
         textAlign: TextAlign.start,
