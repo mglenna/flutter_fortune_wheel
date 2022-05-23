@@ -156,7 +156,7 @@ class AlternatingStyleStrategy
   final List<int> disabledIndices;
 
   Color _getFillColor(ThemeData theme, int index, int itemCount) {
-    final color = theme.primaryColor;
+    final color = red;
     final background = theme.backgroundColor;
     final opacity = itemCount % 2 == 1 && index == 0
         ? 0.7 // TODO: make 0.75
